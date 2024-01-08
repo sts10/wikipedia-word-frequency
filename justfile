@@ -7,6 +7,7 @@ delete:
   rm wordfreq_fr.txt
   rm wordfreq_es.txt
   rm wordfreq_de.txt
+  rm wordfreq_pt.txt
 
 # Build English word list
 build:
@@ -27,3 +28,8 @@ buildes:
 buildde:
   wget -np -r --accept-regex 'https:\/\/dumps\.wikimedia\.org\/dewiki\/latest\/dewiki-latest-pages-articles[0-9]+\..*' https://dumps.wikimedia.org/dewiki/latest/
   python ./gather_wordfreq.py dumps.wikimedia.org/dewiki/latest/*.bz2 > wordfreq_de.txt
+
+# Build Portuguese word list
+buildpt:
+  wget -np -r --accept-regex 'https:\/\/dumps\.wikimedia\.org\/ptwiki\/latest\/ptwiki-latest-pages-articles[0-9]+\..*' https://dumps.wikimedia.org/ptwiki/latest/
+  python ./gather_wordfreq.py dumps.wikimedia.org/ptwiki/latest/*.bz2 > wordfreq_pt.txt
