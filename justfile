@@ -1,3 +1,4 @@
+# Delete local dumps.wikimedia.org directory
 reset: 
   rm -rf dumps.wikimedia.org
   
