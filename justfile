@@ -1,9 +1,6 @@
-# Delete local dumps.wikimedia.org directory
+# Delete local dumps.wikimedia.org directory and any/all existing wordfreq.txt files (but NOT results/)
 reset: 
   rm -rf dumps.wikimedia.org
-  
-# Delete all exist wordfreq.txt files (not results/)
-delete:
   rm wordfreq.txt
   rm wordfreq_fr.txt
   rm wordfreq_es.txt
