@@ -10,19 +10,30 @@ The script needs Python 3. On macOS, [there is a known bug with Python 3.8](http
 
 Install requirements:
 
-    pip install -r requirements.txt
+```sh
+pip install -r requirements.txt
+```
 
-Download the current Wikipedia dumps (Note that as of April 2023, this will require about 19 Gb of free space):
+Download the current Wikipedia dumps for the desired language:
 
-    wget -np -r --accept-regex 'https:\/\/dumps\.wikimedia\.org\/enwiki\/latest\/enwiki-latest-pages-articles[0-9]+\..*' https://dumps.wikimedia.org/enwiki/latest/
+```sh
+WIKI=enwiki
+wget -np -r --accept-regex \
+  "https:\/\/dumps\.wikimedia\.org\/${WIKI}\/latest\/${WIKI}-latest-pages-articles[0-9]*\.xml.bz2" \
+  https://dumps.wikimedia.org/${WIKI}/latest/
+```
 
-Collect data:
+_Note that for enwiki (as of April 2023) this will require about 19 Gb of free space._
 
-    python ./gather_wordfreq.py dumps.wikimedia.org/enwiki/latest/*.bz2 > wordfreq.txt
+Parse dumps and save results:
+
+```sh
+python ./gather_wordfreq.py dumps.wikimedia.org/${WIKI}/latest/*.bz2 > wordfreq.txt
+```
 
 ## Pre-generated word frequency data
 
-The word frequency data for English, Spanish, French, German, Italian, Portuguese, Dutch, Arabic, Polish, Egyptian, Japanese, Russian, Cebuano, Swedish, Ukrainian, Vietnamese, Chinese, & Waray are provided at [results](results).
+The word frequency data for English, Spanish, French, German, Italian, Portuguese, Dutch, Arabic, Polish, Egyptian, Japanese, Russian, Cebuano, Swedish, Ukrainian, Vietnamese, Chinese, Waray, Afrikaans & Swahili are provided at [results](results).
 
 English results:
 
